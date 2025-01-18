@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+# => DARK/LIGHT THEME TOGGLE
+--------------------------------------------------------------*/
+
+body {
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 25.9px;
+    background-color: #0095ff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    box-shadow: 0 0 0 1px rgba(74, 109, 129, 0.7);
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    top: 1.7px;
+    left: 1.7px;
+    background-color: #ffdc16;
+    transition: transform 0.3s ease, background-color 0.4s ease;
+}
+
+.theme-toggle.night {
+    background-color: #152530;
+}
+
+.theme-toggle.night::before {
+    transform: translateX(24px);
+    background-color: #eee;
+    left: 0px;
+}
+
+.theme-toggle::after {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+.theme-toggle.night::after {
+    content: '🌙';
+    left: unset;
+    right: 2.7px;
+}
+
+/* Desactivar transiciones iniciales para evitar efecto visual en la carga */
+.no-transition * {
+    transition: none !important;
+}

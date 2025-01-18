@@ -1,0 +1,652 @@
+/*--------------------------------------------------------------
+# => Light/Dark Theme
+--------------------------------------------------------------*/
+
+[data-bs-theme="light"] {
+
+    /* body {
+        background-color: #38658a;
+    } */
+
+    .card {
+        background-color: #fff;
+    }
+
+    .table td {
+        background-color: #fff;
+        /* background-color: #fafafa; */
+    }
+
+    .form-control,
+    .form-select,
+    .form-floating>.form-control:focus~label::after {
+        background-color: unset;
+    }
+
+    [contenteditable].form-control,
+    [type=email].form-control,
+    [type=password].form-control,
+    [type=tel].form-control,
+    [type=text].form-control,
+    input.form-control,
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=text],
+    textarea,
+    textarea.form-control {
+        background-color: unset;
+    }
+}
+
+/* Estilos para el tema oscuro */
+[data-bs-theme="dark"] {
+
+    .table thead th {
+        /* color: #5cb7ff; */
+        background-color: #394146;
+    }
+
+    .table td {
+        border: 1px dashed #4f5152;
+    }
+
+    .table th {
+        border: 1px solid #394146;
+    }
+
+    .table td:first-child {
+        border-left: 1px solid #4f5152;
+    }
+
+    .table td:last-child {
+        border-right: 1px solid #4f5152;
+    }
+
+    .btn-outline-dark {
+        color: #fff;
+    }
+
+    .table thead th {
+        background-color: #394146 !important;
+        border: 1px solid #394146 !important;
+    }
+}
+
+/*--------------------------------------------------------------
+# ► Fonts
+--------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Mahameru-bold';
+    src: url('../../assets/fonts/Mahameru-bold.woff2') format("woff2");
+}
+
+/*--------------------------------------------------------------
+# => BS5 Material THEME
+--------------------------------------------------------------*/
+
+.form-label {
+    margin-bottom: .25px;
+    color: #55789b;
+    font-size: .88rem;
+}
+
+/* .form-floating>.form-label {
+    top: 10px;
+    margin-bottom: 0;
+    transition: transform .502s;
+} */
+
+.form-control, .form-select, .form-floating>.form-control:focus~label::after {
+    padding: .25rem 0;
+}
+
+textarea {
+    resize: none;
+    field-sizing: content;
+}
+
+.form-floating>.form-control-plaintext~label,
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+    /* color: rgba(var(--bs-body-color-rgb), .65); */
+    color: #55789b;
+    transform: scale(.88) translateY(-1.51rem) translateX(0rem);
+}
+
+[data-bs-theme="light"] {
+    .form-control, .form-select, .form-floating>.form-control:focus~label::after {
+        background-color: #fff;
+    }
+}
+
+.form-floating>label {
+    padding: 1.51rem 0;
+}
+
+/* [contenteditable].form-control,
+[type=email].form-control,
+[type=password].form-control,
+[type=tel].form-control,
+[type=text].form-control,
+input.form-control,
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=text],
+textarea,
+textarea.form-control,
+.form-select {
+    padding: .205rem;
+} */
+
+.form-select,
+select.form-select:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.card {
+    padding: .7rem;
+}
+
+.btn {
+    font-size: .898rem;
+    text-transform: none;
+}
+
+.btn-sm {
+    padding: 0.43rem 0.7rem;
+    font-size: .799rem;
+}
+
+.form-select:focus {
+    box-shadow: inset 0 -2px 0 #2196f3;
+}
+
+/* ------------------------- */
+
+/*--------------------------------------------------------------
+# => General
+--------------------------------------------------------------*/
+body {
+    font-size: .934rem;
+    background: url('../img/background.jpg') no-repeat center center / cover fixed;
+    background-color: #000;
+}
+
+h1 {
+    font-family: 'Mahameru-bold';
+    font-style: italic;
+    color: #ff3b4e;
+    font-weight: bold;
+    text-shadow: 1.33px 1.33px 2.5px rgb(0, 0, 0, .52);
+}
+
+/* Ocultar las flechas del input de tipo número */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.btn-inc-dec {
+    width: 40px;
+    border: 1px solid transparent !important;
+    margin: 0 !important;
+    box-shadow: none;
+    color: #8195af;
+
+    &:hover {
+        background-color: #eee !important;
+    }
+
+    &:active {
+        background-color: #ddd !important;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.togglePassword {
+    transition: color .52s;
+    padding-bottom: 2.23rem;
+}
+
+/*--------------------------------------------------------------
+# => BS 5
+--------------------------------------------------------------*/
+
+/* .form-label {
+    margin-bottom: 7px;
+    color: #66879d;
+    font-size: .88rem;
+}
+
+.form-check-label {
+    color: #66879d;
+} */
+
+.table thead th {
+    text-align: center !important;
+    font-weight: normal;
+    color: #fff;
+    background-color: #66879d !important;
+    border: 1px solid #66879d !important;
+    white-space: nowrap;
+}
+
+.table tfoot th {
+    text-align: center;
+    font-weight: normal;
+    border: none;
+}
+
+.form-floating>.form-control:not(:placeholder-shown)~label::after {
+    background-color: transparent;
+}
+
+.table th,
+.table td {
+    padding: 0.205rem 0.5rem;
+}
+
+.table th {
+    border-color: #66879d;
+}
+
+.table thead {
+    border-color: #66879d;
+}
+
+.table td {
+    border: 1px dashed #c8d6e3;
+}
+
+.table td:first-child {
+    border-left: 1px solid #c8d6e3;
+}
+
+.table td:last-child {
+    border-right: 1px solid #c8d6e3;
+}
+
+.table .actions {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.wrapper {
+    height: calc(100dvh);
+}
+
+.sidebar-logo {
+    height: auto;
+    width: 70%;
+    margin: 15px;
+    margin-top: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.61));
+}
+
+.sidebar-logo-login {
+    height: 88px;
+    width: auto;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.61));
+    margin-top: -80px;
+}
+
+.sidebar-username {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: #888;
+    text-shadow: none;
+    animation: sidebar-username 3.4s infinite ease-in-out;
+}
+
+@keyframes sidebar-username {
+
+    0%,
+    100% {
+        color: #fff;
+        text-shadow: 0 0 7px rgb(255, 255, 255, .97);
+    }
+
+    60% {
+        color: #999;
+        text-shadow: none;
+    }
+}
+
+.sidebar-userfoto {
+    width: 38.5px;
+    filter: drop-shadow(0 0 1.6px rgba(255, 255, 255, .88));
+}
+
+.requerido::after {
+    content: '\F151';
+    color: #dc3545;
+    font-family: 'bootstrap-icons';
+    font-size: .5em;
+    margin-left: 5.2px;
+}
+
+.menu-principal a {
+    max-width: 100%;
+    flex: 1 1 18rem;
+}
+
+.sidebar {
+    background-color: rgb(15 22 26 / 70%);
+    backdrop-filter: blur(3.04px);
+}
+
+.sidebar-brand {
+    color: #999;
+    transition: color .43s ease-out, text-shadow .43s ease-out;
+
+    &:hover {
+        color: #fff;
+        text-shadow: 0 0 7px rgb(255, 255, 255, .97);
+    }
+}
+
+/*--------------------------------------------------------------
+# Media Querys
+--------------------------------------------------------------*/
+/*
+@media (width <=575.98px) {
+    h1 {
+        color: mediumpurple;
+    }
+}
+
+@media (width >=576px) {
+    h1 {
+        color: red;
+    }
+}
+
+@media (width >=768px) {
+    h1 {
+        color: yellow;
+    }
+}
+
+@media (width >=992px) {
+    h1 {
+        color: green;
+    }
+} */
+
+/*--------------------------------------------------------------
+# => SIDEBAR
+--------------------------------------------------------------*/
+
+#theme-toggle {
+    transform: scale(0.808);
+}
+
+/* Estilos personalizados para la barra de scroll */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(33 142 255 / 52%) rgba(255, 255, 255, 0.1);
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(33 142 255 / 52%);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgb(33 142 255 / 70%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Estilos específicos para el scroll del sidebar */
+.sidebar .links::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar .links::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 8px 0;
+}
+
+.sidebar .links::-webkit-scrollbar-thumb {
+    background: rgb(33 142 255 / 40%);
+    border-radius: 3px;
+}
+
+.sidebar .links::-webkit-scrollbar-thumb:hover {
+    background: rgb(33 142 255 / 60%);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.52);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 900;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 249px;
+    border-right: 1px solid rgba(70, 70, 70, 0.25);
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.52);
+    transition: left .808s ease;
+    backdrop-filter: blur(8.8px);
+    z-index: 10000;
+}
+
+.sidebar .toggle-btn {
+    position: absolute;
+    top: 5px;
+    right: -30px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.sidebar.show .toggle-btn span {
+    background: #e51c23;
+}
+
+.sidebar .toggle-btn span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #1889e5;
+    transform: translateY(-50%);
+    transition: all .43s;
+    box-shadow: 0 0 2.5px .295px rgba(255, 255, 255, .7);
+}
+
+.sidebar .toggle-btn:hover>span {
+    box-shadow: 0 0 3.4px .7px rgba(255, 255, 255, .88);
+}
+
+.sidebar.show .toggle-btn:hover>span {
+    background: crimson;
+}
+
+.sidebar .toggle-btn span:nth-child(1) {
+    top: 20%;
+}
+
+.sidebar .toggle-btn span:nth-child(2) {
+    top: 50%;
+}
+
+.sidebar .toggle-btn span:nth-child(3) {
+    top: 80%;
+}
+
+.sidebar .links {
+    overflow-y: auto;
+    height: calc(100% - 308px);
+    /* padding-right: 2px; */
+    /* Espacio para la barra de scroll */
+}
+
+.sidebar .links a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #777;
+    cursor: pointer;
+    transition: all .52s ease-out;
+    font-size: .943rem;
+    border-left: 3px solid transparent;
+    box-shadow: inset 0 0 0 0 transparent;
+}
+
+.sidebar .links a.show,
+.sidebar .links a:hover {
+    color: #fff !important;
+    border-left: 3px solid #fff;
+    box-shadow: inset 0 0 34px -7px rgba(27, 130, 239, 1);
+}
+
+.sidebar a.link-logout:hover {
+    color: #fff !important;
+    border-left: 3px solid #fff;
+    box-shadow: inset 0 0 34px -7px rgba(229, 28, 35, 1);
+}
+
+.sidebar .links a i {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.sidebar.show .toggle-btn span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.sidebar.show .toggle-btn span:nth-child(2) {
+    display: none;
+}
+
+.sidebar.show .toggle-btn span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.app-title {
+    color: #fff;
+    font-size: 1.87rem;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-family: 'Mahameru-bold';
+    font-style: italic;
+    letter-spacing: 0.34px;
+}
+
+.user-avatar {
+    padding: 5px 15px 0 15px;
+    text-align: center;
+}
+
+.sidebar-logo {
+    max-width: 120px;
+    height: auto;
+}
+
+.sidebar-username {
+    font-weight: 300;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.105rem;
+}
+
+.user-rol {
+    color: #17b2d3;
+    padding: 10px 7px 0 7px;
+    font-size: .808rem;
+}
+
+.separator {
+    height: 1px;
+    background-color: rgba(70, 70, 70, .7);
+    width: 83.5%;
+    margin: 15px auto;
+}
+
+.main-content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left .808s ease;
+    height: 200vh;
+    /* Para demostrar el scroll */
+}
+
+.main-content.shift {
+    margin-left: 249px;
+}
+
+/*--------------------------------------------------------------
+# => DATATABLES
+--------------------------------------------------------------*/
+
+select[name=myDataTable_length] {
+    width: 50px !important;
+    text-align: center;
+}
+
+.dt-column-order {
+    transform: scale(0.79);
+}
+
+.page-link {
+    font-size: .88rem;
+}

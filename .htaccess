@@ -1,0 +1,126 @@
+# ----------------------------------------------------------------------
+# Habilitar mod_rewrite y opciones para URLs amigables
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Reescritura de URLs amigables
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^(.*)$ index.php?uri=$1 [QSA,L]
+</IfModule>
+
+# # ----------------------------------------------------------------------
+# # Seguridad básica
+# # ----------------------------------------------------------------------
+# # Evitar el listado de directorios
+# Options -Indexes
+
+# # Proteger el archivo .htaccess
+# <Files .htaccess>
+#     Order Allow,Deny
+#     Deny from all
+# </Files>
+
+# # Proteger archivos sensibles (configuraciones, logs, etc.)
+# <FilesMatch "(^\.|wp-config\.php|composer\.json|composer\.lock|error_log|php_error_log|xmlrpc\.php)">
+#     Order Allow,Deny
+#     Deny from all
+# </FilesMatch>
+
+# # Proteger cabeceras HTTP (seguridad adicional)
+# <IfModule mod_headers.c>
+#     Header set X-Content-Type-Options "nosniff"
+#     Header set X-Frame-Options "SAMEORIGIN"
+#     Header set X-XSS-Protection "1; mode=block"
+#     Header set Referrer-Policy "strict-origin-when-cross-origin"
+#     Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';"
+# </IfModule>
+
+# # ----------------------------------------------------------------------
+# # Compresión de archivos
+# # ----------------------------------------------------------------------
+# <IfModule mod_deflate.c>
+#     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+#     AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/xml application/json
+#     AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2 image/svg+xml
+
+#     # No comprimir archivos ya comprimidos o multimedia
+#     SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|mp4|mp3|avi|mov|wmv|pdf)$ no-gzip
+# </IfModule>
+
+# # ----------------------------------------------------------------------
+# # Configuración de caché (expiración)
+# # ----------------------------------------------------------------------
+# <IfModule mod_expires.c>
+#     ExpiresActive On
+#     ExpiresDefault "access plus 1 month"
+
+#     # HTML y dinámico (caché corta)
+#     ExpiresByType text/html "access plus 1 hour"
+
+#     # CSS y JavaScript
+#     ExpiresByType text/css "access plus 1 week"
+#     ExpiresByType application/javascript "access plus 1 week"
+#     ExpiresByType application/x-javascript "access plus 1 week"
+
+#     # Imágenes y multimedia (caché más larga)
+#     ExpiresByType image/jpeg "access plus 1 month"
+#     ExpiresByType image/png "access plus 1 month"
+#     ExpiresByType image/gif "access plus 1 month"
+#     ExpiresByType image/webp "access plus 1 month"
+#     ExpiresByType video/mp4 "access plus 1 month"
+#     ExpiresByType video/webm "access plus 1 month"
+#     ExpiresByType application/pdf "access plus 1 month"
+#     ExpiresByType image/svg+xml "access plus 1 month"
+#     ExpiresByType font/woff2 "access plus 1 month"
+#     ExpiresByType font/ttf "access plus 1 month"
+#     ExpiresByType font/otf "access plus 1 month"
+# </IfModule>
+
+# # ----------------------------------------------------------------------
+# # Compresión Brotli (si tu servidor soporta mod_brotli)
+# # ----------------------------------------------------------------------
+# <IfModule mod_brotli.c>
+#     AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml text/javascript application/javascript application/x-javascript image/svg+xml
+# </IfModule>
+
+# # ----------------------------------------------------------------------
+# # Configuración de ETag y control de caché
+# # ----------------------------------------------------------------------
+# <IfModule mod_headers.c>
+#     # Deshabilitar ETags
+#     Header unset ETag
+#     FileETag None
+
+#     # Control de caché
+#     Header set Cache-Control "max-age=31536000, public"
+#     Header set Pragma "public"
+# </IfModule>
+
+# # ----------------------------------------------------------------------
+# # Redirecciones 301 (ajusta según tus necesidades)
+# # ----------------------------------------------------------------------
+# # Redirigir HTTP a HTTPS
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# # Redirigir www a no-www (o viceversa)
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# # ----------------------------------------------------------------------
+# # Otros ajustes útiles
+# # ----------------------------------------------------------------------
+# # Aumentar el tamaño máximo de subida de archivos
+# php_value upload_max_filesize 20M
+# php_value post_max_size 25M
+
+# # Aumentar el tiempo máximo de ejecución de scripts PHP
+# php_value max_execution_time 300
+# php_value max_input_time 300
