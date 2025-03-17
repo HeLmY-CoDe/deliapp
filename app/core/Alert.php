@@ -21,7 +21,7 @@ class Alert
     public static function bs5($text = 'texto', $type = 'success', $isDismissible = false)
     {
 
-        $dismissible = '';
+        $dismissible = 'pe-3';
         $btnClose    = '';
 
         if ($isDismissible) {

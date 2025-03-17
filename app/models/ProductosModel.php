@@ -15,7 +15,6 @@ class ProductosModel extends Database
             P.id,
             P.codigo,
             P.detalle,
-            P.stock,
             P.status,
             S.nombre AS seccion
         FROM
@@ -52,7 +51,6 @@ class ProductosModel extends Database
             SET
                 `codigo` = :codigo,
                 `detalle` = :detalle,
-                `stock` = :stock,
                 `seccion_id` = :seccion_id,
                 `status` = :status
             WHERE
@@ -73,14 +71,12 @@ class ProductosModel extends Database
             $sql = "INSERT INTO `productos`(
                 codigo,
                 detalle,
-                stock,
                 seccion_id,
                 status
             )
             VALUES(
                 :codigo,
                 :detalle,
-                :stock,
                 :seccion_id,
                 :status
             )";
@@ -136,7 +132,6 @@ class ProductosModel extends Database
             P.id,
             P.codigo,
             P.detalle,
-            P.stock,
             S.nombre AS seccion
         FROM
             `productos` P
@@ -153,7 +148,6 @@ class ProductosModel extends Database
             P.id,
             P.codigo,
             P.detalle,
-            P.stock,
             S.nombre AS seccion
         FROM
             `productos` P
@@ -172,7 +166,6 @@ class ProductosModel extends Database
             P.id,
             P.codigo,
             P.detalle,
-            P.stock,
             S.nombre AS seccion
         FROM
             `productos` P

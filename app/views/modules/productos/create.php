@@ -26,10 +26,6 @@
                         <textarea class="form-control" name="detalle" id="detalle" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="stock" class="form-label">Stock</label>
-                        <input type="number" class="form-control" name="stock" id="stock" required>
-                    </div>
-                    <div class="mb-3">
                         <label for="seccion_id" class="form-label">Sección</label>
                         <select type="seccion_id" class="form-select" name="seccion_id" id="seccion_id" required>
                             <option value="">Elegir Sección</option>

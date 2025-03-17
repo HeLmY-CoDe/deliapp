@@ -41,7 +41,6 @@ class ProductosController extends ProductosModel
                 <td class='text-center'>{$producto['id']}</td>
                 <td class='text-center'>{$producto['codigo']}</td>
                 <td>{$producto['detalle']}</td>
-                <td class='text-center'>{$producto['stock']}</td>
                 <td class='text-center'>{$producto['seccion']}</td>
                 <td class='text-center'><i class=\"bi bi-{$estadoIcon} fs-5\"></i></td>
                 <td class='actions text-center'>
@@ -70,14 +69,12 @@ class ProductosController extends ProductosModel
 
             $codigo     = $_POST['codigo'];
             $detalle    = $_POST['detalle'];
-            $stock      = $_POST['stock'];
             $seccion_id = $_POST['seccion_id'];
             $status     = $_POST['status'];
 
             $createData = [
                 'codigo'     => $codigo,
                 'detalle'    => mb_strtoupper($detalle),
-                'stock'      => $stock,
                 'seccion_id' => $seccion_id,
                 'status'     => $status,
             ];
@@ -126,7 +123,6 @@ class ProductosController extends ProductosModel
             $id         = $_POST['id'];
             $codigo     = $_POST['codigo'];
             $detalle    = $_POST['detalle'];
-            $stock      = $_POST['stock'];
             $seccion_id = $_POST['seccion_id'];
             $status     = $_POST['status'];
 
@@ -134,7 +130,6 @@ class ProductosController extends ProductosModel
                 'id'         => $id,
                 'codigo'     => $codigo,
                 'detalle'    => mb_strtoupper($detalle),
-                'stock'      => $stock,
                 'seccion_id' => $seccion_id,
                 'status'     => $status,
             ];
@@ -205,7 +200,7 @@ class ProductosController extends ProductosModel
 
             if (empty($productoId)) {
                 $productosOptions .= "
-                <option value=\"{$producto['id']}\">{$producto['codigo']} - {$producto['detalle']} - {$producto['stock']}</option>
+                <option value=\"{$producto['id']}\">{$producto['codigo']} - {$producto['detalle']}</option>
                 ";
             } else {
                 $selected = ($productoId == $producto['id'])
@@ -213,7 +208,7 @@ class ProductosController extends ProductosModel
                     : '';
 
                 $productosOptions .= "
-                <option value=\"{$producto['id']}\" {$selected}>{$producto['codigo']} - {$producto['detalle']} - {$producto['stock']}</option>
+                <option value=\"{$producto['id']}\" {$selected}>{$producto['codigo']} - {$producto['detalle']}</option>
                 ";
             }
         }
@@ -230,7 +225,7 @@ class ProductosController extends ProductosModel
         foreach ($productos as $producto) {
 
             $productosSeccionOptions .= "
-            <option value=\"{$producto['id']}\">{$producto['codigo']} - {$producto['detalle']} - {$producto['stock']}</option>
+            <option value=\"{$producto['id']}\">{$producto['codigo']} - {$producto['detalle']}</option>
             ";
         }
 

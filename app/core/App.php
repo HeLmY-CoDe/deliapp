@@ -61,29 +61,13 @@ class App
     // }
 
     // Método para inicializar la sesión y validar su estado actual
+    // Se asegura de que la sesión esté iniciada y en un estado válido antes de continuar
     private function init_session()
     {
-        // echo '<pre>SESION:';
-        // var_dump(Session::validate());
-        // echo '</pre>';
-
-        // Verifica si no se ha iniciado una sesión (estado PHP_SESSION_NONE)
-        if (session_status() === PHP_SESSION_NONE) {
-            // Verifica que los encabezados HTTP no hayan sido enviados
-            if (!headers_sent()) {
-                // Inicia la sesión de forma segura
-                session_start([
-                    'cookie_lifetime' => 86400, // Tiempo de vida de la cookie en segundos (1 día en este ejemplo)
-                    'cookie_secure'   => true,  // Solo envía la cookie a través de HTTPS
-                    'cookie_httponly' => true,  // Evita el acceso a la cookie desde JavaScript
-                    'use_strict_mode' => true,  // Evita que se reutilicen identificadores de sesión
-                ]);
-            } else {
-                // Registrar un error o lanzar una excepción si los encabezados ya han sido enviados
-                die("No se pudo iniciar la sesión: los encabezados ya han sido enviados.");
-            }
-        }
+        // Esto previene el acceso no autorizado y refuerza la seguridad de la aplicación
+        Session::verify();
     }
+
 
     // Método para inicializar el enrutador y obtener la URI solicitada
     private function init_router()

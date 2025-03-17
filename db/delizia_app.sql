@@ -127,7 +127,6 @@ CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `codigo` varchar(50) NOT NULL,
   `detalle` varchar(100) NOT NULL,
-  `stock` int(11) NOT NULL,
   `seccion_id` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -138,11 +137,11 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `codigo`, `detalle`, `stock`, `seccion_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, '3156', 'OVEJA NEGRA MENTA CHOC 190 ML X 1 U', 648, 6, 1, '2024-10-23 16:21:33', '2024-10-23 16:27:55'),
-(2, '1393', 'POSTRE TRADICIÓN TUMBO 200 ML', 19, 6, 0, '2024-10-23 16:29:05', '2024-11-10 03:59:10'),
-(3, '1538', 'POSTRE TRADICION CHANTILLY 200 ML', 1, 6, 1, '2024-10-23 16:30:08', '2024-10-23 16:30:08'),
-(5, '457', 'HELADO DE CANELA PALETA', 68, 2, 1, '2024-10-23 16:35:34', '2024-10-23 16:35:34');
+INSERT INTO `productos` (`id`, `codigo`, `detalle`, `seccion_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, '3156', 'OVEJA NEGRA MENTA CHOC 190 ML X 1 U', 6, 1, '2024-10-23 16:21:33', '2024-10-23 16:27:55'),
+(2, '1393', 'POSTRE TRADICIÓN TUMBO 200 ML', 6, 0, '2024-10-23 16:29:05', '2024-11-10 03:59:10'),
+(3, '1538', 'POSTRE TRADICION CHANTILLY 200 ML', 6, 1, '2024-10-23 16:30:08', '2024-10-23 16:30:08'),
+(5, '457', 'HELADO DE CANELA PALETA', 2, 1, '2024-10-23 16:35:34', '2024-10-23 16:35:34');
 
 -- --------------------------------------------------------
 

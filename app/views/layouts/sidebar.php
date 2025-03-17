@@ -1,5 +1,5 @@
     <aside class="sidebar /show" id="sidebar">
-        <div class="toggle-btn" id="toggle-btn">
+        <div class="toggle-btn ps-1" id="toggle-btn">
             <span></span>
             <span></span>
             <span></span>

@@ -6,12 +6,12 @@
             <div class="mx-3">
                 <h1 class="display-5 text-center"><?= $view_moduleTitle; ?></h1>
 
-                <div>
-                    <a href="<?= APP_URL; ?>cargos/nuevo" class="btn btn-primary btn-rounded">
+                <div class="d-flex justify-content-between flex-wrap gap-3">
+                    <a href="<?= APP_URL; ?>cargos/nuevo" class="btn btn-primary flex-grow-1 flex-sm-grow-0">
                         <i class="bi bi-plus me-1"></i> Nuevo Registro
                     </a>
 
-                    <a href="<?= APP_URL; ?>pages/menu" class="btn btn-info float-end">
+                    <a href="<?= APP_URL; ?>pages/menu" class="btn btn-info flex-grow-1 flex-sm-grow-0">
                         <i class="bi bi-list me-1"></i>
                         Menú
                     </a>

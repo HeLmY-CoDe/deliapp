@@ -52,19 +52,48 @@ class Session
         return false; // Acceso denegado
     }
 
+    // public static function verify()
+    // {
+    //     if (session_status() === PHP_SESSION_NONE) {
+    //         session_start([
+    //             'cookie_lifetime' => 86400, // Tiempo de vida de la cookie en segundos (1 día en este ejemplo)
+    //             'cookie_secure'   => true,  // Solo envía la cookie a través de HTTPS
+    //             'cookie_httponly' => true,  // Evita el acceso a la cookie desde JavaScript
+    //             'use_strict_mode' => true,  // Evita que se reutilicen identificadores de sesión
+    //         ]);
+    //     }
+
+    //     // Verifica si hay una sesión activa
+    //     if (!empty($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] === 'OK') {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
     public static function verify()
     {
         if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+            session_start([
+                'use_strict_mode' => true,  // Evita reutilización de IDs de sesión
+                'use_cookies'     => true,  // Fuerza el uso de cookies para sesiones
+                'cookie_lifetime' => 86400, // Vida de la cookie (1 día)
+                'cookie_secure'   => isset($_SERVER['HTTPS']), // Solo en HTTPS
+                'cookie_httponly' => true,  // Bloquea acceso desde JavaScript
+                'cookie_samesite' => 'Strict' // Previene ataques CSRF
+            ]);
+
+            // Regenerar el ID de sesión si es una sesión nueva
+            if (!isset($_SESSION['initiated'])) {
+                session_regenerate_id(true);
+                $_SESSION['initiated'] = true;
+            }
         }
 
-        // Verifica si hay una sesión activa
-        if (!empty($_SESSION) && isset($_SESSION['status']) && $_SESSION['status'] === 'OK') {
-            return true;
-        } else {
-            return false;
-        }
+        // Verificar si la sesión es válida
+        return isset($_SESSION['status']) && $_SESSION['status'] === 'OK';
     }
+
 
     public static function hasCargoAccess(...$cargosPermitidos)
     {

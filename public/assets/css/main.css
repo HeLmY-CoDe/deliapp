@@ -154,6 +154,7 @@ select.form-select:focus {
 .btn {
     font-size: .898rem;
     text-transform: none;
+    padding: 0.709rem 0.88rem;
 }
 
 .btn-sm {
@@ -171,7 +172,7 @@ select.form-select:focus {
 # => General
 --------------------------------------------------------------*/
 body {
-    font-size: .934rem;
+    font-size: .844rem;
     background: url('../img/background.jpg') no-repeat center center / cover fixed;
     background-color: #000;
 }
@@ -634,6 +635,10 @@ input[type=number] {
     margin-left: 249px;
 }
 
+.message-alert .alert {
+    border-radius: 0;
+}
+
 /*--------------------------------------------------------------
 # => DATATABLES
 --------------------------------------------------------------*/
@@ -641,6 +646,7 @@ input[type=number] {
 select[name=myDataTable_length] {
     width: 50px !important;
     text-align: center;
+    padding-right: 7.9px;
 }
 
 .dt-column-order {
